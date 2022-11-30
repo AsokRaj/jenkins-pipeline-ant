@@ -45,7 +45,7 @@
     </target>
 
     <!-- Deploy the unpackaged set of metadata retrieved with retrieveUnpackaged and run tests in this organization's namespace only-->
-    <target name="deployUnpackaged">
+    <target name="deployUnpackaged" depends = "retrieveUnpackaged">
       <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="retrieveUnpackaged" rollbackOnError="true"/>
     </target>
 
@@ -55,10 +55,9 @@
     </target>
 
     <!-- Shows deploying code & running tests for code in directory -->
-    <target name="deployCode">
+    <target name="deployCode" depends= "retrieveCode">
       <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
-      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" testLevel="RunSpecifiedTests" rollbackOnError="true">
-      	 <runTest>SampleDeployClass</runTest> 
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" testLevel="NoTestRun" rollbackOnError="true">
       </sf:deploy>
     </target>
 	
