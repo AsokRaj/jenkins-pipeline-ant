@@ -3,6 +3,7 @@
     <types>
         <members>SampleDeployClass</members>
         <members>SampleFailingTestClass</members>
+		<members>SampleDeployClass2</members>
         <name>ApexClass</name>
     </types>
     <types>
