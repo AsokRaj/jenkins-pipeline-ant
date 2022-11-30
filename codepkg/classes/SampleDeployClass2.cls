@@ -1,5 +1,5 @@
 @isTest
-public class SampleDeployClass {
+public class SampleDeployClass2 {
 
     public static testmethod void t1() {
         helloMethod();
