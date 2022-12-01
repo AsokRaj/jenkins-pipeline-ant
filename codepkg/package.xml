@@ -4,6 +4,7 @@
         <members>SampleDeployClass</members>
         <members>SampleFailingTestClass</members>
 		<members>SampleDeployClass2</members>
+		<members>SampleDeployClass3</members>
         <name>ApexClass</name>
     </types>
     <types>
