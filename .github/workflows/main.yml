@@ -3,8 +3,17 @@ name: Deploy integration branch to integration and staging/uat orgs
 
 # Definition when the workflow should run
 on:
-    push:
+    pull_request:
+      # The events are that a PR is opened, or when a commit is pushed
+      # to a branch that has an existing pull request
+      types: [opened, synchronize]
+      # The branches filter allows to specify that this workflow should only
+      # run if the branch name is "main". This way we prevent this workflow
+      # from running when PRs are opened on other branches
       branches: [ main ]
+      # We only care about changes to the force-app directory, which is the
+      # root directory of the sfdx project. This prevents the job from running
+      # when changing non-salesforce files (like this yml file).
       paths:
         - 'force-app/**'
             
